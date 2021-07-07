@@ -6,6 +6,8 @@ versão spring utilizada : `2.5.2`
 
 versão Java `11.0.11`
 
+Banco utilizado: `H2Database`
+
 `Exemplos para requisições:`
 
 `INSERTS/POST`
