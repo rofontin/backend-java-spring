@@ -11,7 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 
-@Entity(name = "ORDEMSERVICO")
+@Entity
 public class OrdemServico {
 	
 	@Id
@@ -27,6 +27,10 @@ public class OrdemServico {
 	@ManyToOne
 	@JoinColumn(name="IDEQUIPAMENTO")
 	private Equipamento equipamento;
+	
+	@ManyToOne
+	@JoinColumn(name="IDRESPONSAVEL")
+	private Responsavel responsavel;
 	
 	@Column(name = "DESCRICAO")
 	private String descricao;
@@ -94,5 +98,13 @@ public class OrdemServico {
 
 	public void setDataTermino(Date dataTermino) {
 		this.dataTermino = dataTermino;
+	}
+
+	public Responsavel getResponsavel() {
+		return responsavel;
+	}
+
+	public void setResponsavel(Responsavel responsavel) {
+		this.responsavel = responsavel;
 	}
 }

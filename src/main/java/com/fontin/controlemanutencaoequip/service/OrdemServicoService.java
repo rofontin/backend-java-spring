@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import com.fontin.controlemanutencaoequip.entity.Cliente;
 import com.fontin.controlemanutencaoequip.entity.Equipamento;
 import com.fontin.controlemanutencaoequip.entity.OrdemServico;
+import com.fontin.controlemanutencaoequip.entity.Responsavel;
 import com.fontin.controlemanutencaoequip.repository.OrdemServicoRepository;
 import com.fontin.controlemanutencaoequip.vo.OrdemServicoVO;
 
@@ -25,6 +26,9 @@ public class OrdemServicoService {
 	
 	@Autowired
 	private EquipamentoService equipamentoService;
+	
+	@Autowired
+	private ResponsavelService responsavelService;
 
 	public List<OrdemServico> findAll() {
 		return ordemServicoRepository.findAll();
@@ -36,16 +40,22 @@ public class OrdemServicoService {
 	        
 		return ResponseEntity.ok().body(ordemServico);
 	}
+	
+	public List<OrdemServico> findOrdensServicoPendentePorResponsavel(Long responsavelId) {
+		return ordemServicoRepository.findOrdensServicoPendentePorResponsavel(responsavelId);
+	}
 
 	public OrdemServico save(OrdemServicoVO ordemServicoVO) {
 		ResponseEntity<Cliente> cliente = clienteService.findById(ordemServicoVO.getIdCliente());
 		ResponseEntity<Equipamento> equipamento = equipamentoService.findById(ordemServicoVO.getIdEquipamento());
+		ResponseEntity<Responsavel> responsavel = responsavelService.findById(ordemServicoVO.getIdResponsavel());
 		
 		OrdemServico ordemServico = new OrdemServico();
 		ordemServico.setDescricao(ordemServico.getDescricao());
 		ordemServico.setPendente(true);
 		ordemServico.setCliente(cliente.getBody());
 		ordemServico.setEquipamento(equipamento.getBody());
+		ordemServico.setResponsavel(responsavel.getBody());
 		
 		return ordemServicoRepository.save(ordemServico);
 	}

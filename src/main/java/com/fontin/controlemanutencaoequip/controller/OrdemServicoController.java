@@ -40,22 +40,25 @@ public class OrdemServicoController {
 		return ordemServicoService.findById(ordemServicoId);
 	}
 	
+	@GetMapping("findordensservicopendenteporresponsavel/{id}")
+	public List<OrdemServico> findOrdensServicoPendentePorResponsavel(@PathVariable(value = "id") Long responsavelId){
+		return ordemServicoService.findOrdensServicoPendentePorResponsavel(responsavelId);
+	}
+	
 	@PostMapping(produces = {APPLICATION_JSON,APPLICATION_XML,APPLICATION_XYAML}, 
 		     consumes = {APPLICATION_JSON,APPLICATION_XML,APPLICATION_XYAML})
 	public OrdemServico create(@RequestBody OrdemServicoVO ordemServicoVO) {
 		return ordemServicoService.save(ordemServicoVO);
 	}
 	
-	@PutMapping(path = {"/iniciar/{id}"}, produces = {APPLICATION_JSON,APPLICATION_XML,APPLICATION_XYAML}, 
-		     consumes = {APPLICATION_JSON,APPLICATION_XML,APPLICATION_XYAML})
+	@PutMapping(path = {"/iniciar/{id}"}, produces = {APPLICATION_JSON,APPLICATION_XML,APPLICATION_XYAML})
 	public OrdemServico iniciarOrdemServico(@PathVariable(value = "id") Long ordemServicoId,
-											@RequestParam("data") @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss") Date data) {
+											@RequestParam("data") @DateTimeFormat(pattern="yyyy-MM-dd") Date data) {
 		
 		return ordemServicoService.iniciarOrdemServico(ordemServicoId, data);
 	}
 	
-	@PutMapping(path = {"/finalizar/{id}"}, produces = {APPLICATION_JSON,APPLICATION_XML,APPLICATION_XYAML}, 
-		     consumes = {APPLICATION_JSON,APPLICATION_XML,APPLICATION_XYAML})
+	@PutMapping(path = {"/finalizar/{id}"}, produces = {APPLICATION_JSON,APPLICATION_XML,APPLICATION_XYAML})
 	public OrdemServico finalizarOrdemServico(@PathVariable(value = "id") Long ordemServicoId,
 											  @RequestParam("data") @DateTimeFormat(pattern="yyyy-MM-dd") Date data) {
 		

@@ -5,7 +5,7 @@ import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
-@JsonPropertyOrder({"idOrdemServico","idCliente","idEquipamento","descricao"})
+@JsonPropertyOrder({"idOrdemServico","idCliente","idEquipamento","idResponsavel","descricao"})
 public class OrdemServicoVO implements Serializable{
 
 	private static final long serialVersionUID = 1L;
@@ -18,6 +18,9 @@ public class OrdemServicoVO implements Serializable{
 	
 	@JsonProperty("idEquipamento")
 	private Long idEquipamento;
+	
+	@JsonProperty("idResponsavel")
+	private Long idResponsavel;
 	
 	@JsonProperty("descricao")
 	private String descricao;
@@ -52,5 +55,13 @@ public class OrdemServicoVO implements Serializable{
 
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
+	}
+
+	public Long getIdResponsavel() {
+		return idResponsavel;
+	}
+
+	public void setIdResponsavel(Long idResponsavel) {
+		this.idResponsavel = idResponsavel;
 	}
 }

@@ -7,7 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 
-@Entity(name = "EQUIPAMENTO")
+@Entity
 public class Equipamento {
 	
 	@Id
