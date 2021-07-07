@@ -1,8 +1,10 @@
 "# backend-java-spring"
 
-`Para rodar a aplicação foi iniciado o SpringBoot na IDE - Spring Tool Suite 4`
+Para rodar a aplicação foi iniciado o SpringBoot na IDE - Spring Tool Suite 4
 
-`versão spring utilizada : 2.5.2`
+versão spring utilizada : `2.5.2`
+
+versão Java `11.0.11`
 
 `Exemplos para requisições:`
 
