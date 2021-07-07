@@ -7,8 +7,11 @@
 `Exemplos para requisições:`
 
 `INSERTS/POST`
+
 http://127.0.0.1:8181/desafioprojuris/clientes
+
 JSON:
+
 {
 	"idCliente":null,
 	"nome": "Jão",
@@ -17,16 +20,22 @@ JSON:
 	"email": "joao@gmail.com"
 }
 
+-----------------------------------------------------------------------------------------
 http://127.0.0.1:8181/desafioprojuris/equipamentos
+
 JSON:
+
 {
 	"idEquipamento":null,
 	"nome": "Suspenção",
 	"tipo": "Auto"
 }
 
+-----------------------------------------------------------------------------------------
 http://127.0.0.1:8181/desafioprojuris/responsaveis
+
 JSON:
+
 {
 	"idResponsavel":null,
 	"nome": "Marcio",
@@ -35,8 +44,11 @@ JSON:
 	"email": "marcio@gmail.com"
 }
 
+-----------------------------------------------------------------------------------------
 http://127.0.0.1:8181/desafioprojuris/ordensservico
+
 JSON:
+
 {
 	"idOrdemServico":null,
 	"idCliente": 1,
@@ -46,10 +58,13 @@ JSON:
 }
 
 `INICIAR ORDEM DE SERVICO` 
+
 http://127.0.0.1:8181/desafioprojuris/ordensservico/iniciar/1?data=2021-07-06
 
 `FINALIZAR ORDEM DE SERVICO`
+
 http://127.0.0.1:8181/desafioprojuris/ordensservico/finalizar/1?data=2021-07-06
 
 `BUSCAR ORDENS DE SERVICO PENDENTES POR RESPONSAVEL`
+
 http://127.0.0.1:8181/desafioprojuris/ordensservico/findordensservicopendenteporresponsavel/1
